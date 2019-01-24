@@ -1,0 +1,10 @@
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (1, 'Anton', 'anton_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (2, 'Semen', 'semen_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (3,'Igor', 'igor_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (4,'Vladimir', 'vladimir_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (5,'Oleg', 'oleg_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (6,'Nickolay', 'nickolay_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (7,'Maxim', 'maxim_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (8,'Dmitry', 'dmitry_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (9,'Sergey', 'sergey_password');
+INSERT INTO USER (ID, LOGIN, PASSWORD) VALUES (10,'Andrey', 'andrey_password');

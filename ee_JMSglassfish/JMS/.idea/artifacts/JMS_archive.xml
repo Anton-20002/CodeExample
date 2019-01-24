@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JMS archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/JMS_archive</output-path>
+    <root id="archive" name="JMS archive.war">
+      <element id="artifact" artifact-name="JMS" />
+    </root>
+  </artifact>
+</component>

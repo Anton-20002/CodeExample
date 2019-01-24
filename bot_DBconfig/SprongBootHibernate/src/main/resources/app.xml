@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.spring.hibernate.SprongBootHibernate.controller" />
+    <!--Для datasource нужен maven org.apache.commons-->
+    <bean id="dataSource1" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/resttest?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Moscow&amp;useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="372987316684azXY" />
+    </bean>
+    <bean id="sessionFactory1"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <qualifier value="sf" />
+        <property name="dataSource" ref="dataSource1" />
+        <property name="packagesToScan" value="com.spring.hibernate.SprongBootHibernate.model" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.pool_size">5</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="hibernateJpaVendorAdapter"
+          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+	<bean id = "entityManagerFactory1"
+		  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
+        <qualifier value="emf" />
+        <property name="dataSource" ref="dataSource1" />
+        <property name="packagesToScan" value="com.spring.hibernate.SprongBootHibernate.model" />
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+            </props>
+        </property>
+	</bean >
+    <!--Нужно переопределять jdbcTemplate если используем persistence.xml -->
+    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<property name="dataSource" ref="dataSource1"/>-->
+        <!--<qualifier value="jdbc" />-->
+    <!--</bean>-->
+
+</beans>
